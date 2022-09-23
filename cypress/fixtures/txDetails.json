@@ -1,0 +1,8 @@
+{
+    "fiatCurrency":"EUR",
+    "cryptoCurrecy":"BTC",
+    "amount":200,
+    "paymentMetod":"creditCard",
+    "country":"nl",
+    "paymentMethod2":"Apple Pay"
+}

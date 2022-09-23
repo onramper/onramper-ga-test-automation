@@ -1,0 +1,41 @@
+{
+  "experiment":{
+    "event":"experiment",
+    "controlCategory":"control",
+    "variatACategory":"variantA",
+    "staticRoutingLabel":"staticRoutingExperiment"
+  },
+"elementClick":{
+  "event":"element-click",
+  "buttonCategory":"button",
+  "buyLabel":"buy",
+  "txFormAction":"transactionForm",
+  "menuLabel":"menu",
+  "linkCategory":"link",
+  "menuCloseAction":"menuClose",
+  "menuCloseLabel":"menuClose",
+  "dropDownCategory":"dropdown",
+  "inCurrecncyLabel":"inCurrency",
+  "inCurrencyAction":"inCurrencySelection",
+  "dropDownValCategory":"dropdownValue",
+  "outCurrecncyLabel":"outCurrency",
+  "outCurrencyAction":"outCurrencySelection",
+  "fieldCategory":"field",
+  "amountLabel":"amount",
+  "optionCategory":"option",
+  "applePayLabel":"applePay",
+  "otherLabel":"other",
+  "paymentMethodSelectionAction":"paymentMethodSelection"
+
+},
+
+"swap":{
+  "event":"swap",
+  "action":"step 3",
+  "label":"walletConnected",
+  "screen":"connect wallet screen",
+  "trigger":"the wallet is connected successfully"
+}
+
+
+}
