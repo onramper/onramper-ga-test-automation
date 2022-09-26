@@ -8,7 +8,7 @@ describe('Verify Data Layer - Tx screen', () => {
 
   }))
 
-  it('Verify Static Routing Experiment', () => {   
+  it.only('Verify Static Routing Experiment', () => {   
     
     cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
 
