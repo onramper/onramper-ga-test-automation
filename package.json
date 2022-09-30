@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "execute":"npx cypress run --browser chrome"
+    "execute": "npx cypress run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^10.3.1",
     "cypress-mochawesome-reporter": "^3.2.2"
+  },
+  "dependencies": {
+    "newman": "^5.3.2"
   }
 }
