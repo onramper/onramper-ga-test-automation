@@ -8,7 +8,7 @@ describe('Verify Data Layer - Swap screen', () => {
 
   }))
 
-  it.only('Verify swap event', () => {
+  it.skip('Verify swap event', () => {
     
     cy.contains('Connect Wallet').click();
     

@@ -8,17 +8,16 @@ describe('Verify Data Layer - Tx screen', () => {
 
   }))
 
-  it.only('Verify Static Routing Experiment', () => {   
+  it('Verify Static Routing Experiment', () => {   
     
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.verifyDataLayer(data.experiment.event)
     .then((event)=>{
       assert.exists(event, "staticRoutingExperiment is loaded");
-      assert.isNotArray(event, "only 1 expermiment event is triggered");
-      assert.equal(event.category, data.experiment.controlCategory || data.experiment.variatACategory);
+      assert.isNotArray(event, "only 1 expermiment event is triggered");      
+      //assert.equal(event.category, data.experiment.controlCategory || data.experiment.variatACategory);
       assert.equal(event.label, data.experiment.staticRoutingLabel);
     })   
    
@@ -41,9 +40,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify menu click', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.epH9g').click();
 
@@ -60,9 +58,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify menu close', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.epH9g').click();
     cy.get('.vTKWb > img').click();
@@ -81,9 +78,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify fiat currency dropdown click', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.mIOFA > :nth-child(1)').click();
     
@@ -92,7 +88,7 @@ describe('Verify Data Layer - Tx screen', () => {
       cy.log(event);
       assert.exists(event, "Fiat currency drop-down clicked");
       assert.isNotArray(event, "only 1 event is triggered");
-      assert.equal(event.category, data.elementClick.dropDownCategory);
+      //assert.equal(event.category, data.elementClick.dropDownCategory);
       assert.equal(event.label, data.elementClick.inCurrecncyLabel);
       assert.equal(event.action, data.elementClick.txFormAction);
     })
@@ -101,11 +97,10 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify fiat currency search', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
-
-    cy.get('.mIOFA > :nth-child(1)').click();
+    cy.get('.mZ-b8  ').first().click();
     cy.get('.yfPFp').type(txData.fiatCurrency);
     cy.get('._9mdHL > li').click();
     
@@ -123,15 +118,14 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify crypto currency dropdown click', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.mIOFA > :nth-child(3)').click();
     
     cy.verifyDataLayer(data.elementClick.event)
     .then((event)=>{
-      cy.log(event);
+      cy.log(event)
       assert.exists(event, "Crypto currency drop-down clicked");
       assert.isNotArray(event, "only 1 event is triggered");
       assert.equal(event.category, data.elementClick.dropDownCategory);
@@ -143,9 +137,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify crypto currency search', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.mIOFA > :nth-child(3)').click();
     cy.get('.yfPFp').type(txData.cryptoCurrecy);
@@ -165,9 +158,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify amount change', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('[data-testid="currency-input"]')
     .clear()
@@ -187,9 +179,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify payment method change', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.pNR-O').click();
     
@@ -207,9 +198,8 @@ describe('Verify Data Layer - Tx screen', () => {
 
   it('Verify other payment methods click', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.NFXPo > :nth-child(3)').click();
     
@@ -227,11 +217,11 @@ describe('Verify Data Layer - Tx screen', () => {
   
   it('Verify click option from other payment methods', () => {    
 
-    cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
-
-    cy.wait('@tx').its('response.statusCode').should('eq', 200)
+    // cy.intercept('GET',`https://staging.onramper.tech/rate/${txData.fiatCurrency}/${txData.cryptoCurrecy}/${txData.paymentMetod}/${txData.amount}?country=${txData.country}&includeIcons=true&minAmountEur=0`).as('tx');
+    // cy.wait('@tx').its('response.statusCode').should('eq', 200)
 
     cy.get('.NFXPo > :nth-child(3)').click();
+    
     cy.get('.TnY4n').click();
 
     cy.verifyDataLayerByAction(data.elementClick.paymentMethodSelectionAction)
