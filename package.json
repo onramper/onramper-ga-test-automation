@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "execute": "npx cypress run"
+    "execute": "npx cypress run --browser chrome --record --key 6ad01c16-2534-4641-8f0f-f9481a641856"
   },
   "author": "",
   "license": "ISC",

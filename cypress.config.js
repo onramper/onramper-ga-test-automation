@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
+    projectId: "r2jfku",
     reporter: 'cypress-mochawesome-reporter',
     baseUrl:`https://widget.onramper.dev`,
     defaultCommandTimeout:5000,

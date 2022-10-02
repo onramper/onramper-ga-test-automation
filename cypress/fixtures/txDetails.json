@@ -1,5 +1,5 @@
 {
-    "fiatCurrency":"EUR",
+    "fiatCurrency":"USD",
     "cryptoCurrecy":"BTC",
     "amount":200,
     "paymentMetod":"creditCard",
